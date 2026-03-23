@@ -1,0 +1,31 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	preloadIndex = true
+	fscache = true
+[remote "origin"]
+	url = https://github.com/fibsys/ERP-SaaS.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+[branch "feat/3.3-admin-dashboard-contract"]
+	remote = origin
+	merge = refs/heads/feat/3.3-admin-dashboard-contract
+[branch "release/v3.3.0"]
+	remote = origin
+	merge = refs/heads/release/v3.3.0
+[branch "adm_saas_1_2_layout_login"]
+	remote = origin
+	merge = refs/heads/adm_saas_1_2_layout_login
+[branch "adm_saas_1_2"]
+	remote = origin
+	merge = refs/heads/adm_saas_1_2
+[feature]
+	manyFiles = true
+[branch "restore-from-commit"]
+	remote = origin
+	merge = refs/heads/restore-from-commit

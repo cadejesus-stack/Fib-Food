@@ -1,0 +1,126 @@
+name: fib-food
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: fib-food-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - fib_food_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - fib-food-net
+
+  tenant-api:
+    build:
+      context: ./services/tenant-api
+    container_name: fib-food-tenant-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8010:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - fib-food-net
+
+  food-catalog-api:
+    build:
+      context: ./services/food-catalog-api
+    container_name: fib-food-catalog-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8011:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - fib-food-net
+
+  food-order-api:
+    build:
+      context: ./services/food-order-api
+    container_name: fib-food-order-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8012:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - fib-food-net
+
+  food-kitchen-api:
+    build:
+      context: ./services/food-kitchen-api
+    container_name: fib-food-kitchen-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8013:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - fib-food-net
+
+  food-reservation-api:
+    build:
+      context: ./services/food-reservation-api
+    container_name: fib-food-reservation-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8014:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - fib-food-net
+
+  food-delivery-api:
+    build:
+      context: ./services/food-delivery-api
+    container_name: fib-food-delivery-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8015:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - fib-food-net
+
+  food-loyalty-api:
+    build:
+      context: ./services/food-loyalty-api
+    container_name: fib-food-loyalty-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8016:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - fib-food-net
+
+volumes:
+  fib_food_postgres_data:
+
+networks:
+  fib-food-net:
+    driver: bridge

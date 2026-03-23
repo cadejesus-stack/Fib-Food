@@ -1,0 +1,136 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Node / frontend builds
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+.vitest/
+.eslintcache
+
+# Env
+.env
+.env.*
+
+# --- local/dev junk ---
+.venv*/
+venv*/
+__pycache__/
+*.pyc
+
+# IDE / run folders
+.run/
+.run_check_*/
+.vscode/
+.idea/
+
+# backups / snapshots / dumps
+_backups*/
+backup*/
+_back*
+_snapshots/
+*.bak
+*.bak.*
+*.sql
+*.tar
+*.gz
+*.zip
+
+# docker desktop / wsl artifacts
+DockerDesktopWSL/
+
+# random generated names (se forem artefatos locais)
+erp-saas-api
+NAMES
+Error
+
+
+# --- local/dev junk ---
+.venv/
+.venv-*/
+.venv-ai/
+node_modules/
+**/node_modules/
+DockerDesktopWSL/
+.run/
+.run_*/
+_snapshots/
+_backup_*/
+backups/
+backup-*/
+*.bak*
+*.log
+*.tmp
+
+# ---- backups e snapshots ----
+*.bak
+*.bak.*
+*.backup
+*_backup_*
+.snapshots/
+_backup_*/
+*.tar
+*.sql
+
+# ---- ambientes ----
+.venv*
+.run/
+DockerDesktopWSL/
+node_modules/
+
+# ---- temporários ----
+*.log
+*.tmp
+*.swp
+
+# ---- imagens e dumps acidentais ----
+backup*
+auth.db*
+
+# --- WSL / caches / backups (auto) ---
+.venv*/
+.run*/
+.run_check_*/
+DockerDesktopWSL/
+_backups*/
+_backup*/
+_snapshots/
+backups/
+backup*/
+*.tar
+*.tar.gz
+*.zip
+*.bak
+*.bak.*
+*.before_restore_*
+*.before_*
+*.fixed
+*.sql
+*.log
+
+# node / build
+**/node_modules/
+**/dist/
+**/.vite/
+**/.cache/
+
+# runtime / generated
+.data/
+services/network/radius/freeradius/runtime/
+
+# accidental SSH keys in workspace root
+/erpadmin
+/erpadmin.pub

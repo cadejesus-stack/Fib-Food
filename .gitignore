@@ -134,3 +134,20 @@ services/network/radius/freeradius/runtime/
 # accidental SSH keys in workspace root
 /erpadmin
 /erpadmin.pub
+
+# Git internals and accidental exports at repository root
+/HEAD
+/ORIG_HEAD
+/FETCH_HEAD
+/COMMIT_EDITMSG
+/index
+/packed-refs
+/config
+/description
+/--name
+/--network
+/-e
+/-p
+/0
+/=
+/fib-food-tenant-api:*
